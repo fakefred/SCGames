@@ -61,6 +61,14 @@ io.on('connection', socket => {
         }
     });
 
+    socket.on('clearblock', data => {
+        if (typeof data.y === 'number' && typeof data.x === 'number') {
+            console.log(data);
+            grid[data.y][data.x] = '';
+            socket.broadcast.emit('setchar', data);
+        }
+    })
+
     socket.on('disconnect', () => {
         if (players.has(player)) {
             players.delete(player);

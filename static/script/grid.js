@@ -68,7 +68,7 @@ function editBlock(y, x) {
 }
 
 function setBlock(y, x, char) {
-    document.getElementsByClassName('block')[8 * y + x].innerHTML = char;
+    document.getElementsByClassName('block')[8 * y + x].innerHTML = char || '';
 }
 
 function submitChar() {
@@ -81,6 +81,18 @@ function submitChar() {
             player: name
         });
         setBlock(editing.y, editing.x, char);
+        editing = {};
+    }
+}
+
+function clearBlock() {
+    if (editing !== {}) {
+        socket.emit('clearblock', {
+            y: editing.y,
+            x: editing.x,
+            player: name
+        });
+        setBlock(editing.y, editing.x, '');
         editing = {};
     }
 }
