@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sandcastle Games</title>
+        <link rel="icon" href="./icons/icons8-palace-24.png" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="/stylesheet/grid.css" />
+    </head>
+    <body>
+        <main id="main">
+            <div id="welcome" class="card center floatbox">
+                <div class="card-body">
+                    <h4 class="card-title">Welcome to Sandcastle Games!</h4>
+                    <p class="card-text">
+                        Come play all our shit<sup>&reg;&copy;&trade;</sup>
+                    </p>
+                    <input
+                        id="player-id"
+                        class="form-control"
+                        placeholder="What's your name?"
+                        autocomplete="on"
+                    /><br />
+                    <a
+                        class="btn btn-outline-warning btn-m"
+                        onclick="submitName()"
+                        role="button"
+                        >ENTER</a
+                    >
+                </div>
+            </div>
+
+            <ul id="players" class="list-group list-group-horizontal"></ul>
+
+            <div id="grid-container">
+                <table id="grid"></table>
+            </div>
+
+            <div id="controls">
+                <input
+                    id="char-input"
+                    class="form-control"
+                    placeholder="💩"
+                    maxlength="2"
+                    onclick="document.getElementById('char-input').placeholder=''"
+                />
+                <button
+                    id="submit-char"
+                    class="btn btn-success btn-m"
+                    onclick="submitChar()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Submit"
+                >
+                    OK
+                </button>
+
+                <button
+                    id="clear-block"
+                    class="btn btn-danger btn-m"
+                    onclick="clearBlock()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Clear"
+                >
+                    CLR
+                </button>
+            </div>
+            <br />
+        </main>
+
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+        <script src="/script/grid.js"></script>
+    </body>
+</html>
