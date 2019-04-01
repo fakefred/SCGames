@@ -23,10 +23,12 @@
                     <p class="card-text">
                         Come play all our shit<sup>&reg;&copy;&trade;</sup
                         ><br />
-                        <sub>Tip: click a block, then the piece of shit, to edit
-                        blocks; OK submits, CLR clears, while &lt;&gt;^v move
-                        blocks. When something is wrong, either click the block
-                        again or refresh.</sub>
+                        <sub
+                            >Tip: click a block, then the piece of shit, to edit
+                            blocks; OK submits, CLR clears, while &lt;&gt;^v
+                            move blocks. When something is wrong, either click
+                            the block again or refresh.</sub
+                        >
                     </p>
                     <input
                         id="player-id"
@@ -72,38 +74,41 @@
                 >
                     CLR
                 </button>
+                <div id="swap-group">
+                    <button
+                        id="swap-left"
+                        class="btn btn-secondary btn-m"
+                        onclick="swap('left')"
+                    >
+                        &lt;
+                    </button>
 
-                <button
-                    id="swap-left"
-                    class="btn btn-secondary btn-m"
-                    onclick="swap('left')"
-                >
-                    &lt;
-                </button>
+                    <button
+                        id="swap-right"
+                        class="btn btn-secondary btn-m"
+                        onclick="swap('right')"
+                    >
+                        &gt;
+                    </button>
 
-                <button
-                    id="swap-right"
-                    class="btn btn-secondary btn-m"
-                    onclick="swap('right')"
-                >
-                    &gt;
-                </button>
+                    <br />
 
-                <button
-                    id="swap-up"
-                    class="btn btn-secondary btn-m"
-                    onclick="swap('up')"
-                >
-                    ^
-                </button>
+                    <button
+                        id="swap-up"
+                        class="btn btn-secondary btn-m"
+                        onclick="swap('up')"
+                    >
+                        ^
+                    </button>
 
-                <button
-                    id="swap-down"
-                    class="btn btn-secondary btn-m"
-                    onclick="swap('down')"
-                >
-                    v
-                </button>
+                    <button
+                        id="swap-down"
+                        class="btn btn-secondary btn-m"
+                        onclick="swap('down')"
+                    >
+                        v
+                    </button>
+                </div>
             </div>
             <br />
         </main>

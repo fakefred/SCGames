@@ -53,7 +53,7 @@ body {
     display: inline;
 }
 
-#submit-char, #clear-block, #swap-left, #swap-right, #swap-up, #swap-down {
+#submit-char, #clear-block {
     position: relative;
     top: 12px;
     color: white;
@@ -65,8 +65,16 @@ body {
     left: 28px;
 }
 
+#swap-group {
+    position: absolute;
+    right: 24px;
+    bottom: -32px;
+    line-height: 48px;
+}
+
 #swap-left, #swap-right, #swap-up, #swap-down {
+    color: white;
     width: 40px;
     height: 40px;
-    left: 28px;
+    font-size: 1.2em;
 }
