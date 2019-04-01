@@ -113,13 +113,17 @@ function swap(direction) {
             swapWith = { y, x: x - 1 };
         } else if (direction === 'right' && editing.x < 7) {
             swapWith = { y, x: x + 1 };
+        } else if (direction === 'up' && editing.y > 0) {
+            swapWith = { y: y - 1, x };
+        } else if (direction === 'down' && editing.y < 7) {
+            swapWith = { y: y + 1, x };
         }
         const adjacentChar = getBlock(swapWith.y, swapWith.x);
         uploadChar(editing.y, editing.x, adjacentChar, name);
         uploadChar(swapWith.y, swapWith.x, originalChar, name);
         setBlock(editing.y, editing.x, adjacentChar);
         setBlock(swapWith.y, swapWith.x, originalChar);
-        editing = {y: swapWith.y, x: swapWith.x};
+        editing = { y: swapWith.y, x: swapWith.x };
     }
 }
 

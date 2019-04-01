@@ -45,7 +45,7 @@ body {
 #char-input {
     position: relative;
     left: 16px;
-    top: 16px;
+    top: 12px;
     width: 60px;
     height: 60px;
     font-size: 28px;
@@ -53,15 +53,20 @@ body {
     display: inline;
 }
 
-#submit-char, #clear-block, #swap-left, #swap-right {
+#submit-char, #clear-block, #swap-left, #swap-right, #swap-up, #swap-down {
     position: relative;
     top: 12px;
-    left: 32px;
-    width: 50px;
-    height: 50px;
     color: white;
 }
 
-#swap-left, #swap-right {
-    font-size: 1.5em;
+#submit-char, #clear-block {
+    width: 50px;
+    height: 50px;
+    left: 28px;
+}
+
+#swap-left, #swap-right, #swap-up, #swap-down {
+    width: 40px;
+    height: 40px;
+    left: 28px;
 }
