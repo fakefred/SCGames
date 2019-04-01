@@ -3,6 +3,10 @@ const gridContainer = document.querySelector('#grid-container');
 const screenWidth = window.innerWidth;
 gridContainer.style += ` left: ${(window.innerWidth - 368) / 2};`;
 
+function getBlock(y, x) {
+    return document.getElementsByClassName('block')[8 * y + x].innerHTML;
+}
+
 function resetGrid() {
     let html = '';
     for (let y = 0; y < 8; y++) {
@@ -62,9 +66,7 @@ let editing = {};
 
 function editBlock(y, x) {
     editing = { y, x };
-    document.querySelector(
-        '#char-input'
-    ).value = document.getElementsByClassName('block')[8 * y + x].innerHTML;
+    document.querySelector('#char-input').value = getBlock(y, x);
 }
 
 function setBlock(y, x, char) {
@@ -74,15 +76,19 @@ function setBlock(y, x, char) {
 function submitChar() {
     const char = document.querySelector('#char-input').value;
     if (char !== '' && editing !== {}) {
-        socket.emit('setchar', {
-            y: editing.y,
-            x: editing.x,
-            char,
-            player: name
-        });
+        uploadChar(editing.y, editing.x, char, name);
         setBlock(editing.y, editing.x, char);
         editing = {};
     }
+}
+
+function uploadChar(y, x, char, player) {
+    socket.emit('setchar', {
+        y,
+        x,
+        char,
+        player
+    });
 }
 
 function clearBlock() {
@@ -94,6 +100,26 @@ function clearBlock() {
         });
         setBlock(editing.y, editing.x, '');
         editing = {};
+    }
+}
+
+function swap(direction) {
+    if (editing !== {} && direction) {
+        const y = editing.y,
+            x = editing.x,
+            originalChar = getBlock(editing.y, editing.x);
+        let swapWith = editing;
+        if (direction === 'left' && editing.x > 0) {
+            swapWith = { y, x: x - 1 };
+        } else if (direction === 'right' && editing.x < 7) {
+            swapWith = { y, x: x + 1 };
+        }
+        const adjacentChar = getBlock(swapWith.y, swapWith.x);
+        uploadChar(editing.y, editing.x, adjacentChar, name);
+        uploadChar(swapWith.y, swapWith.x, originalChar, name);
+        setBlock(editing.y, editing.x, adjacentChar);
+        setBlock(swapWith.y, swapWith.x, originalChar);
+        editing = {y: swapWith.y, x: swapWith.x};
     }
 }
 

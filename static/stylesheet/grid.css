@@ -53,10 +53,15 @@ body {
     display: inline;
 }
 
-#submit-char, #clear-block {
+#submit-char, #clear-block, #swap-left, #swap-right {
     position: relative;
     top: 12px;
     left: 32px;
     width: 50px;
     height: 50px;
+    color: white;
+}
+
+#swap-left, #swap-right {
+    font-size: 1.5em;
 }

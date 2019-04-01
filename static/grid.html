@@ -21,7 +21,12 @@
                 <div class="card-body">
                     <h4 class="card-title">Welcome to Sandcastle Games!</h4>
                     <p class="card-text">
-                        Come play all our shit<sup>&reg;&copy;&trade;</sup>
+                        Come play all our shit<sup>&reg;&copy;&trade;</sup
+                        ><br />
+                        <sub>Tip: click a block, then the piece of shit, to edit
+                        blocks; OK submits, CLR clears, while &lt; and &gt; move
+                        blocks. When something is wrong, either click the block
+                        again or refresh.</sub>
                     </p>
                     <input
                         id="player-id"
@@ -30,7 +35,7 @@
                         autocomplete="on"
                     /><br />
                     <a
-                        class="btn btn-outline-warning btn-m"
+                        class="btn btn-warning btn-m"
                         onclick="submitName()"
                         role="button"
                         >ENTER</a
@@ -56,9 +61,6 @@
                     id="submit-char"
                     class="btn btn-success btn-m"
                     onclick="submitChar()"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Submit"
                 >
                     OK
                 </button>
@@ -67,11 +69,24 @@
                     id="clear-block"
                     class="btn btn-danger btn-m"
                     onclick="clearBlock()"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Clear"
                 >
                     CLR
+                </button>
+
+                <button
+                    id="swap-left"
+                    class="btn btn-secondary btn-m"
+                    onclick="swap('left')"
+                >
+                    &lt;
+                </button>
+
+                <button
+                    id="swap-right"
+                    class="btn btn-secondary btn-m"
+                    onclick="swap('right')"
+                >
+                    &gt;
                 </button>
             </div>
             <br />
